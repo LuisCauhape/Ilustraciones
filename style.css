@@ -1,0 +1,305 @@
+/* ==============================
+   VARIABLES (TU IDENTIDAD VISUAL)
+============================== */
+
+:root{
+  --first-color:#0ff5ac;
+  --second-color:#eb534a;
+  --white-color:#ffffff;
+  --text-color:#333333;
+  --font:"Helvetica","Arial",sans-serif;
+  --max-width:87.5rem;
+  --header-height:9.375rem;
+}
+
+/* ==============================
+   RESET
+============================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:var(--font);
+}
+
+body{
+  background: linear-gradient(180deg,#131421 0%,
+#18181a 60%, #1d2035 100%);
+  color:var(--white-color);
+  overflow-x:hidden;
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+.header{
+  width:100%;
+  padding:3rem 2rem;
+  background:#0b0b0e;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.header h1{
+  color:var(--first-color);
+  font-size:2.5rem;
+}
+
+.header p{
+  color:#f9f5f5;
+  margin-top:0.5rem;
+}
+
+/* ==============================
+   HERO
+============================== */
+
+.hero{
+  padding:5rem 2rem;
+  text-align:center;
+  background:linear-gradient(180deg,#0f0f12,#13131a);
+}
+
+.hero h2{
+  color:var(--white-color);
+  font-size:2rem;
+}
+
+.hero p{
+  margin-top:1rem;
+  color:#f9f5f5;
+}
+a{
+  color: rgb(23, 22, 22);
+}
+.button{
+  margin-top:2rem;
+  padding:0.75rem 1.5rem;
+  background:linear-gradient(15deg, #30abf8, #14eb51);
+ color: white;
+
+  border:none;
+  border-radius:0.7rem;
+  cursor:pointer;
+  font-weight:bold;
+  transition:background .3s ease, color .3s ease;
+  margin: 2rem auto;
+}
+
+.button:hover{
+  background:linear-gradient(15deg, #14eb51, #30abf8);
+  color: var(--white-color);
+  color:whitesmoke;
+  transform: scale(1.05);
+  
+}
+
+a{
+  
+}
+/* ==============================
+   ARCHIVO VISUAL
+============================== */
+
+.archivo{
+  padding:4rem 2rem;
+  background:linear-gradient(180deg,#131421 0%,#18181a 60%, #1d2035 100%);
+}
+
+.archivo h2{
+  text-align:center;
+  color:var(--first-color);
+  margin-bottom:3rem;
+  font-size:2rem;
+}
+
+/* ==============================
+   GRILLA TIPO GALERÍA
+============================== */
+
+.archivo-grid{
+  column-count:4;
+  column-gap:1.5rem;
+  max-width:var(--max-width);
+  margin:auto;
+}
+
+@media(max-width:1200px){
+  .archivo-grid{ column-count:3; }
+}
+@media(max-width:800px){
+  .archivo-grid{ column-count:2; }
+}
+@media(max-width:500px){
+  .archivo-grid{ column-count:1; }
+}
+
+/* ==============================
+   ITEMS (NO CARDS)
+============================== */
+
+.archivo-card{
+  break-inside:avoid;
+  margin-bottom:1.5rem;
+  cursor:pointer;
+  position:relative;
+  transition:transform .25s ease, opacity .25s ease;
+}
+
+.archivo-card img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:.4rem;
+  background:#000;
+}
+
+/* Hover suave */
+.archivo-card:hover{
+  transform:scale(1.02);
+  opacity:0.9;
+}
+
+/* ==============================
+   TEXTO EN HOVER
+============================== */
+
+.archivo-hover{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end;
+  padding:1rem;
+  background:linear-gradient(to top,rgba(0,0,0,.7),transparent);
+  color:white;
+  font-weight:bold;
+  opacity:0;
+  transition:.3s;
+}
+
+.archivo-card:hover .archivo-hover{
+  opacity:1;
+}
+
+/* ==============================
+   MODAL
+============================== */
+
+.archivo-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+/* Contenedor */
+.archivo-modal-content{
+  background:#111;
+  color:var(--white-color);
+  padding:2rem;
+  width:100vw;
+  height:90vh;
+  border-radius:1rem;
+  position:relative;
+
+  overflow-y:auto;
+  overflow-x:hidden;
+
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE */
+}
+
+.archivo-modal-content::-webkit-scrollbar{
+  display:none;                /* Chrome / Safari */
+}
+
+
+/* Imagen grande, con scroll */
+.archivo-modal-content img{
+  max-width:70%;
+  max-height:70vh;
+  width:auto;
+  height:auto;
+  margin:2rem auto;
+  display:block;
+  object-fit:contain;
+}
+
+
+/* Textos */
+
+#modalTitle{
+  margin-top:1.5rem;
+  color:var(--first-color);
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2rem;
+}
+
+.year{
+  margin-top:0.5rem;
+  color:#aaa;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.archivo-modal-content h3{
+  margin-top:1.5rem;
+  color:var(--first-color);
+}
+
+.archivo-modal-content p{
+  margin-top:.5rem;
+  color:#aaa;
+}
+
+/* Botón cerrar siempre visible */
+#closeModal{
+  position:fixed;
+  top:20px;
+  right:30px;
+  font-size:2.5rem;
+  cursor:pointer;
+  color:var(--second-color);
+  z-index:10000;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+.footer{
+  padding:2rem;
+  text-align:center;
+  background:#0b0b0e;
+  color:#666;
+}
+
+/* FOTOS DEL ALBUM */
+archivo-modal-content {
+  background: #111;
+  color: var(--white-color);
+  padding: 2rem;
+  width: 70vw;        /* contenedor amplio pero no total */
+  max-width: 1000px;  /* limita ancho máximo */
+  height: 80vh;       
+  border-radius: 1rem;
+  position: relative;
+
+  overflow-y: auto;   /* permite scroll vertical si es más alta */
+  overflow-x: hidden; /* evita scroll horizontal */
+}
+
+.archivo-modal-content img {
+  width: auto;           /* mantener proporción */
+  max-width: 60%;        /* no ocupa todo el ancho, achica un poco */
+  height: auto;          /* mantiene proporción */
+  max-height: none;      /* no limitamos la altura, para poder scrollear */
+  display: block;
+  margin: 2rem auto;     /* centra la imagen y deja espacio a los lados */
+  object-fit: contain;
+}
